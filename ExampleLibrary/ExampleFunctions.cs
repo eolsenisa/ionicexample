@@ -9,16 +9,16 @@ namespace ExampleLibrary
 {
     /*
      *  Assumptions:
-     *      Exception handling is not required for this example
-     *      Int32 is sufficient to contain measurement and dimensional values
-     *      Measurements and Threshold cannot be negative
-     *      X and Y values cannot be negative
-     *      2D array means and uniform array int[,] and not a jagged array int[][]
-     *      Measurement array is square like the example
-     *      Measurement array dimensions should be interpreted as [x,y] and not [y,x]
-     *      When calculating center of mass:
-     *          Values < 0.5 should be rounded down to the previous integer
-     *          Values > 0.5 should be rounded up to the next integer
+     *    Exception handling is not required for this example
+     *    Int32 is sufficient to contain measurement and dimensional values
+     *    Measurements and Threshold cannot be negative
+     *    X and Y values cannot be negative
+     *    2D array means a uniform array int[,] and not a jagged array int[][]
+     *    Array dimensions should be interpreted as [x,y] and not [y,x] 
+     *    Array is square like the example
+     *    When calculating the center of mass:
+     *      Values < 0.5 should be rounded down to the previous integer
+     *      Values >= 0.5 should be rounded up to the next integer
      */
 
     public class ExampleFunctions
@@ -29,7 +29,7 @@ namespace ExampleLibrary
         {
             var rem = pos % 1f;
             if( rem > 0f )
-                if( rem < 0.4f )
+                if( rem < 0.5f )
                     pos -= rem;
                 else
                     pos += ( 1f - rem );
