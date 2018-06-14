@@ -79,7 +79,7 @@ namespace ExampleUnitTests
             var threshold = 1;
             var expected = new List<Point>()
                 {
-                    new Point(3, 3)
+                    new Point(2, 2)
                 };
 
             var output = example.ProcessMeasurements( measurements, threshold );

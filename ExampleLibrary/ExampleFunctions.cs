@@ -25,14 +25,14 @@ namespace ExampleLibrary
     {
         #region Methods (protected)
 
-        protected int RoundWeightedPosition( float pos )
+        protected int RoundWeightedPosition( double pos )
         {
-            var rem = pos % 1f;
-            if( rem > 0f )
-                if( rem < 0.5f )
+            var rem = pos % 1d;
+            if( rem > 0d )
+                if( rem < 0.5d )
                     pos -= rem;
                 else
-                    pos += ( 1f - rem );
+                    pos += ( 1d - rem );
 
             return (int) pos;
         }
@@ -80,20 +80,20 @@ namespace ExampleLibrary
         public Point GetCenterOfMass( HashSet<MeasurementPoint> subregion )
         {
             //-- Calculate total weight
-            float totalWeight = 0f;
+            double totalWeight = 0d;
             foreach( var point in subregion )
-                totalWeight += (float) point.Value;
+                totalWeight += (double) point.Value;
 
             //-- Calculation weighted positions
-            var weightedXtotal = 0f;
-            var weightedYtotal = 0f;
+            var weightedXtotal = 0d;
+            var weightedYtotal = 0d;
             foreach( var point in subregion )
             {
-                var fValue = (float) point.Value;
+                var fValue = (double) point.Value;
                 var fWeight = fValue / totalWeight;
                 //-- Shift positions by 1 so we can weight X=0 and Y=0 properly
-                var fX = (float) point.X + 1f;
-                var fY = (float) point.Y + 1f;
+                var fX = (double) point.X + 1d;
+                var fY = (double) point.Y + 1d;
                 weightedXtotal += fX * fWeight;
                 weightedYtotal += fY * fWeight;
             }

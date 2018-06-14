@@ -149,7 +149,7 @@ namespace ExampleUnitTests
             var p10 = new MeasurementPoint( 4, 2, 4 );
 
             var subregion = new HashSet<MeasurementPoint>() { p1, p2, p3, p4, p5, p6, p7, p8, p9, p10 };
-            var expected = new Point( 3, 3 );
+            var expected = new Point( 2, 2 );
             var output = example.GetCenterOfMass( subregion );
 
             Assert.IsTrue( expected.Equals( output ) );
